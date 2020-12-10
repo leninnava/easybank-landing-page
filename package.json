@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "autoprefixer": "^9",
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.30.0"
+  },
+  "scripts": {
+    "start": "parcel start ./dev/index.html",
+    "build": "parcel build ./dev/index.html"
+  }
+}
