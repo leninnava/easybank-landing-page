@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;300;400;700&display=swap');
+
+
+
+
+
+/* Mobile navbar toggle */
+
+
+/* header {
+  background: url("../images/bg-intro-mobile.svg");
+  background-size: 100% 130%;
+  background-position: 100% 70%;
+  height: 50vh;
+  position: relative;
+  &::after {
+    content: "";
+    background: url("../images/image-mockups.png");
+    display: block;
+    background-position: center top;
+    background-size: contain;
+    position: absolute;
+    background-repeat: no-repeat;
+    transform: scale(1.3);
+    top: -24%;
+    left: 0;
+    max-height: 100%;
+    height: 100%;
+    width: 100vw;
+  }
+} */
+
+
+/* .hero-images {
+   background: url("../images/bg-intro-mobile.svg");
+   background-size: 100% 130%;
+   background-position: 100% 70%;
+   height: 50vh;
+   position: relative;
+   @media (min-width: 768px) {
+    background: url("../images/bg-intro-desktop.svg");
+    background-size: 100% 100%;
+    height: 100vh;
+   }
+
+  &::after {
+    content: "";
+    background: url("../images/image-mockups.png");
+    display: block;
+    background-position: center top;
+    background-size: contain;
+    position: absolute;
+    background-repeat: no-repeat;
+    transform: scale(1.3);
+    top: -24%;
+    left: 0;
+    max-height: 100%;
+    height: 100%;
+    width: 100vw;
+  }
+ */
+// }
+
+header {
+  display: grid;
+  grid-template-areas: "hero"
+                      "content";
+  @media (min-width: 1024px) {
+   grid-template-areas: "content hero";
+  }                      
+  .hero {
+      grid-area: hero;
+  }
+  .content {
+    grid-area: content;
+  }
+}
+
+
+
+/* Component abstractions */
+
+@layer utilities {
+ 
+  .text-xxs {
+    font-size: 0.65rem;
+    line-height: 1rem;
+  };
+  .border-gradient {
+    &::after {
+      content:"";
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(to right, hsl(136, 65%, 51%), hsl(192, 70%, 51%));
+      position: absolute;
+      top: 0px;
+      z-index: -1;
+      transition: all .2s;
+
+    }
+   &:hover::after {
+      top: 4px;
+    }
+  }; 
+
+};
+
+@layer components { 
+
+
+   .link {
+    @apply inline-block text-darkblue tracking-tight font-normal;
+   }
+   .nav-link {
+     @apply h-full w-full bg-white relative grid items-center link text-sm hover:text-darkblue text-grayishblue border-gradient transition-all;
+   }
+   .button {
+       @apply rounded-full bg-gradient-to-r from-limegreen to-brightcyan text-verylightgray px-8 py-3 w-max font-bold text-sm transition;
+   }
+   .button:hover {
+       @apply opacity-50;
+   }
+   .flex-container{
+    @apply flex flex-col lg:flex-row flex-wrap;
+   }
+   .article {
+     @apply flex flex-col items-center lg:items-start;
+   }
+   .article-post {
+     @apply rounded-md grid grid-flow-row grid-rows-2 bg-white mb-6 lg:mb-0;
+   }
+   .article-post-heading {
+     @apply text-darkblue text-base my-2 leading-5;
+   }
+   .article-grid {
+     @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center gap-6;
+   }
+
+
+
+}
+
