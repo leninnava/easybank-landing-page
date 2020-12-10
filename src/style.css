@@ -1,3 +1,62 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
-@import "tailwindcss/utilities"
+@import "tailwindcss/utilities";
+
+@layer utilities {
+
+    .text-xxs {
+      font-size: 0.65rem;
+      line-height: 1rem;
+    };
+    .border-gradient {
+      &::after {
+        content:"";
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(to right, hsl(136, 65%, 51%), hsl(192, 70%, 51%));
+        position: absolute;
+        top: 0px;
+        z-index: -1;
+        transition: all .2s;
+  
+      }
+     &:hover::after {
+        top: 4px;
+      }
+    }; 
+  
+  };
+  
+  @layer components { 
+  
+  
+     .link {
+      @apply inline-block text-darkblue tracking-tight font-normal;
+     }
+     .nav-link {
+       @apply h-full w-full bg-white relative grid items-center link text-sm hover:text-darkblue text-grayishblue border-gradient transition-all;
+     }
+     .button {
+         @apply rounded-full bg-gradient-to-r from-limegreen to-brightcyan text-verylightgray px-8 py-3 w-max font-bold text-sm transition;
+     }
+     .button:hover {
+         @apply opacity-50;
+     }
+     .flex-container{
+      @apply flex flex-col lg:flex-row flex-wrap;
+     }
+     .article {
+       @apply flex flex-col items-center lg:items-start;
+     }
+     .article-post {
+       @apply rounded-md grid grid-flow-row grid-rows-2 bg-white mb-6 lg:mb-0;
+     }
+     .article-post-heading {
+       @apply text-darkblue text-base my-2 leading-5;
+     }
+     .article-grid {
+       @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center gap-6;
+     }
+  
+  }
+  
